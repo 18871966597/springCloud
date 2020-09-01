@@ -1,0 +1,11 @@
+server:
+  port: 8862
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://192.168.37.127:8761/eureka/
+    EurekaServiceUrlPollIntervalSeconds: 5
+spring:
+  application:
+    name: consumer

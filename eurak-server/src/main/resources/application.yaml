@@ -1,0 +1,24 @@
+server:
+  port: 8761
+
+## eureka配置项
+eureka:
+  server:
+    ##    阈值因子，默认是0.85，如果阈值比最小值大，则自我保护模式开启
+    RenewalPercentThreshold: 0.3
+    ## 自我保护模式，当出现出现网络分区、eureka在短时间内丢失过多客户端时，会进入自我保护模式，即一个服务长时间没有发送心跳，eureka也不会将其删除，默认为true
+    ## enable-self-preservation: false
+  instance:
+    hostname: 192.168.37.127
+    ##  eureka客户需要多长时间发送心跳给eureka服务器，表明它仍然活着,默认为30 秒
+    LeaseRenewalIntervalInSeconds: 5
+    ## Eureka服务器在接收到实例的最后一次发出的心跳后，需要等待多久才可以将此实例删除，默认为90秒
+    LeaseExpirationDurationInSeconds: 5
+  client:
+    ## 是否向注册中心注册 默认为true 这里自身作为注册中心所以设置为false
+    register-with-eureka: false
+    ## 是否获取注册服务  默认为 true 里自身作为注册中心所以设置为false
+    fetch-registry: false
+    service-url:
+      ## 设置默认注册地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
