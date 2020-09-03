@@ -16,5 +16,6 @@
 ##org.springframework.cloud.netflix.eureka.config.EurekaClientConfigServerAutoConfiguration,\
 
 集成了fegin组件实现了服务间调用
+fegin组件整合了restTemplate和ribbon负载均衡.
 
 
